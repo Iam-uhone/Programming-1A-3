@@ -4,26 +4,15 @@
  */
 package prog5121;
 
-// Modified Login class with access to stored credentials
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-    class Login {
-        /**
-         * Checks if username meets requirements: contains underscore and is no more than 5 characters
-         */
+    class Login {       
         public boolean checkUserName(String username) {
             return username.contains("_") && username.length() <= 5;
         }
-        
-        /**
-         * Checks if password meets complexity requirements:
-         * - At least 8 characters long
-         * - Contains a capital letter
-         * - Contains a number
-         * - Contains a special character
-         */
+               
         public boolean checkPasswordComplexity(String password) {
             if (password.length() < 8) return false;
             
@@ -39,30 +28,17 @@ import java.util.regex.Pattern;
             
             return hasCapital && hasNumber && hasSpecial;
         }
-        
-        /**
-         * Checks if cell phone number meets requirements:
-         * - Contains international country code for South Africa (+27)
-         * - Number is no more than 10 digits long (excluding country code)
-         * 
-         * This regular expression was created with assistance from ChatGPT (OpenAI, 2023)
-         * Reference: OpenAI. (2023). ChatGPT (September 25 version) [Large language model]. 
-         * https://chat.openai.com/chat
-         */
+              
         public boolean checkCellPhoneNumber(String phone) {
             // Regex pattern for South African phone numbers with country code
-            // Pattern: +27 followed by 9 digits (total 12 characters including +)
+            
             String regex = "^\\+27\\d{9}$";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(phone);
             
             return matcher.matches();
         }
-        
-        /**
-         * Registers a user after validating all inputs
-         * Returns appropriate message based on validation results
-         */
+              
         public String registerUser(String username, String password, String phone) {
             boolean usernameValid = checkUserName(username);
             boolean passwordValid = checkPasswordComplexity(password);
@@ -83,9 +59,7 @@ import java.util.regex.Pattern;
             return "Registration successful!";
         }
         
-        /**
-         * Returns appropriate login status message
-         */
+        
         public String returnLoginStatus(boolean isSuccessful, String firstName, String lastName) {
             if (isSuccessful) {
                 return "Welcome " + firstName + " " + lastName + ", it is great to see you again.";
