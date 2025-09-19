@@ -27,7 +27,7 @@ public class PROG5121 {
         
         System.out.println("Registration and Login System");
         System.out.println("1. Register");
-        System.out.println("2. Login");
+        System.out.println("2 Login");
         System.out.print("Choose an option (1 or 2): ");
         
         int choice = scanner.nextInt();
@@ -40,7 +40,7 @@ public class PROG5121 {
             System.out.print("Enter your last name: ");
             storedLastName = scanner.nextLine();  
              System.out.println();
-            System.out.print("Enter username(must contain underscore and be no more than 5 characters): ");
+            System.out.print("Enter username(must contain underscore and have no more than 5 characters): ");
             String username = scanner.nextLine();                      
             System.out.print("Enter password(must contain special character, a number and have aa minimum of 8 characters): ");
             String password = scanner.nextLine();                       
