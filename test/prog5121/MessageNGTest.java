@@ -34,7 +34,7 @@ public class MessageNGTest {
 
     @Test
     public void testMessageHashCreation() {
-        // Test Case 1: Message hash creation with test data
+        // Test Case 1: Message hash creation 
         String messageID = "0012345678"; // Sample message ID
         int messageNumber = 1;
         String messageContent = "Hi Mike, can you join us for dinner tonight";
@@ -166,7 +166,3 @@ public class MessageNGTest {
     }
 }
 
-/**
- *
- * @author RC_Student_Lab
- */
