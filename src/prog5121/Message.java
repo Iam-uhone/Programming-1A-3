@@ -123,7 +123,7 @@ public class Message {
                 messagesArray = new JSONArray();
             }
             
-            // Add new message
+            // for add new message
             messagesArray.put(messageJson);
             
             // Write back to file
