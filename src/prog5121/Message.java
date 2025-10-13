@@ -52,7 +52,7 @@ public class Message {
     }
     
     public String createMessageHash(String messageID, int messageNumber, String messageContent) {
-        // Get first two digits of message ID
+        // Getting first two digits of message ID
         String firstTwo = messageID.substring(0, 2);
         
         // Extract first and last words from message
@@ -151,7 +151,7 @@ public class Message {
         return this.messageNumber;
     }
     
-    // Getters and setters
+    /// Getters and setters
     public String getMessageID() { return messageID; }
     public void setMessageID(String messageID) { this.messageID = messageID; }
     
