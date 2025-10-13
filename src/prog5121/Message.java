@@ -27,7 +27,7 @@ public class Message {
     private String messageContent;
     private String messageHash;
     
-    // Generate random 10-digit message ID
+    // Generating random 10-digit message ID
     public String generateMessageID() {
         Random random = new Random();
         long id = 1000000000L + random.nextInt(900000000);
