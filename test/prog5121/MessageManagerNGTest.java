@@ -176,7 +176,7 @@ public class MessageManagerNGTest {
         }
         assertFalse(messageExistsAfter);
     }
-    
+    //LAST TEST
     @Test
     public void testDisplayReport() {
         ArrayList<Message> sentMessages = messageManager.getSentMessages();
