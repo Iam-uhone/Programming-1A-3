@@ -271,7 +271,7 @@ public class PROG5121 {
                 // Display message details using JOptionPane
                 message.displayMessageDetails();
                 
-                // Store message in JSON
+                // Storing message in JSON
                 message.storeMessage();
             } else if (result.equals("Message stored for later")) {
                 messageManager.addMessage(message, "stored");
