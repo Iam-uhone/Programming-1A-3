@@ -1,8 +1,42 @@
-[{
-    "messageNumber": 1,
-    "recipient": "+27123456789",
-    "messageID": "1060993474",
-    "messageHash": "10:1:MAMPHWENETA",
-    "messageContent": "mamphwe ritike o neta",
-    "timestamp": "2025-10-13T20:18:54.945857"
-}]
+[
+    {
+        "messageNumber": 1,
+        "recipient": "+27123456789",
+        "messageID": "1060993474",
+        "messageHash": "10:1:MAMPHWENETA",
+        "messageContent": "mamphwe ritike o neta",
+        "timestamp": "2025-10-13T20:18:54.945857"
+    },
+    {
+        "messageNumber": 1,
+        "recipient": "+27123456789",
+        "messageID": "1481051477",
+        "messageHash": "14:1:WEICGADKLCHGUASCJHAGDKJCWEICGADKLCHGUASCJHAGDKJC",
+        "messageContent": "weicgadklchguascjhagdkjc",
+        "timestamp": "2025-11-21T15:09:22.6194005"
+    },
+    {
+        "messageNumber": 2,
+        "recipient": "+27122345678",
+        "messageID": "1396135398",
+        "messageHash": "13:2:COUASJHCZXNVKJZXJBV,JS",
+        "messageContent": "couasjhczxnv kjzxjbv,js",
+        "timestamp": "2025-11-21T15:09:34.0462809"
+    },
+    {
+        "messageNumber": 1,
+        "recipient": "+27122345678",
+        "messageID": "1809843600",
+        "messageHash": "18:1:CUIDFYQEWITRQWITRQEYUCUIDFYQEWITRQWITRQEYU",
+        "messageContent": "cuidfyqewitrqwitrqeyu",
+        "timestamp": "2025-11-21T15:13:55.7029213"
+    },
+    {
+        "messageNumber": 2,
+        "recipient": "+27123445678",
+        "messageID": "1003011937",
+        "messageHash": "10:2:AKJBVZMBCANCVBC,MAKJBVZMBCANCVBC,M",
+        "messageContent": "akjbvzmbcancvbc,m",
+        "timestamp": "2025-11-21T15:14:08.6189784"
+    }
+]

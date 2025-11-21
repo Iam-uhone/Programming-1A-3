@@ -1,9 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-
 package prog5121;
 
 import javax.swing.JOptionPane;
@@ -16,8 +10,6 @@ import java.util.Random;
  * @author RC_Student_Lab
  */
 
-
-
 public class PROG5121 {
     
     private static String storedUsername = "";
@@ -29,6 +21,7 @@ public class PROG5121 {
     private static boolean isLoggedIn = false;
     private static ArrayList<Message> messages = new ArrayList<>();
     private static int totalMessagesSent = 0;
+    private static MessageManager messageManager = new MessageManager();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -125,7 +118,12 @@ public class PROG5121 {
     
     private static void showMainMenu(Scanner scanner) {
         while (isLoggedIn) {
-            String[] options = {"1) Send Messages", "2) Show recently sent messages", "3) Quit"};
+            String[] options = {
+                "1) Send Messages", 
+                "2) Show recently sent messages", 
+                "3) Message Management Features",
+                "4) Quit"
+            };
             int choice = JOptionPane.showOptionDialog(null,
                 "=== QuickChat Main Menu ===\nPlease choose an option:",
                 "QuickChat Main Menu",
@@ -143,12 +141,63 @@ public class PROG5121 {
                     JOptionPane.showMessageDialog(null, "Coming Soon.", "Feature in Development", JOptionPane.INFORMATION_MESSAGE);
                     break;
                 case 2:
+                    showMessageManagementMenu();
+                    break;
+                case 3:
                     JOptionPane.showMessageDialog(null, "Thank you for using QuickChat. Goodbye!");
                     isLoggedIn = false;
                     break;
                 default:
                     // User closed the dialog
                     isLoggedIn = false;
+            }
+        }
+    }
+    
+    private static void showMessageManagementMenu() {
+        while (isLoggedIn) {
+            String[] options = {
+                "1) Display sender/recipient of all sent messages",
+                "2) Display longest sent message", 
+                "3) Search message by ID",
+                "4) Search messages by recipient",
+                "5) Delete message by hash",
+                "6) Display full sent messages report",
+                "7) Back to Main Menu"
+            };
+            
+            int choice = JOptionPane.showOptionDialog(null,
+                "=== Message Management Menu ===\nPlease choose an option:",
+                "Message Management",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+            
+            switch (choice) {
+                case 0:
+                    messageManager.displaySentMessageSendersRecipients();
+                    break;
+                case 1:
+                    messageManager.displayLongestSentMessage();
+                    break;
+                case 2:
+                    messageManager.searchMessageByID();
+                    break;
+                case 3:
+                    messageManager.searchMessagesByRecipient();
+                    break;
+                case 4:
+                    messageManager.deleteMessageByHash();
+                    break;
+                case 5:
+                    messageManager.displaySentMessagesReport();
+                    break;
+                case 6:
+                    return; // Go back to main menu
+                default:
+                    return; // Go back to main menu
             }
         }
     }
@@ -213,7 +262,9 @@ public class PROG5121 {
             String result = message.SentMessage();
             JOptionPane.showMessageDialog(null, result, "Message Status", JOptionPane.INFORMATION_MESSAGE);
             
+            // Add message to appropriate array in MessageManager
             if (result.equals("Message sent")) {
+                messageManager.addMessage(message, "sent");
                 messages.add(message);
                 totalMessagesSent++;
                 
@@ -222,6 +273,12 @@ public class PROG5121 {
                 
                 // Store message in JSON
                 message.storeMessage();
+            } else if (result.equals("Message stored for later")) {
+                messageManager.addMessage(message, "stored");
+                // Store message in JSON for stored messages as well
+                message.storeMessage();
+            } else {
+                messageManager.addMessage(message, "disregarded");
             }
             
             messagesEntered++;
@@ -229,5 +286,30 @@ public class PROG5121 {
         
         JOptionPane.showMessageDialog(null, "Total messages sent: " + totalMessagesSent, 
                                      "Message Summary", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    // Getters for user information to be used by MessageManager
+    public static String getStoredFirstName() {
+        return storedFirstName;
+    }
+    
+    public static String getStoredLastName() {
+        return storedLastName;
+    }
+    
+    public static String getStoredUsername() {
+        return storedUsername;
+    }
+    
+    public static String getStoredPhone() {
+        return storedPhone;
+    }
+    
+    public static boolean isUserLoggedIn() {
+        return isLoggedIn;
+    }
+    
+    public static MessageManager getMessageManager() {
+        return messageManager;
     }
 }
