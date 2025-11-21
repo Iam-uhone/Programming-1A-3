@@ -288,7 +288,7 @@ public class PROG5121 {
                                      "Message Summary", JOptionPane.INFORMATION_MESSAGE);
     }
     
-    // Getters for user information to be used by MessageManager
+    // Getters for user information 
     public static String getStoredFirstName() {
         return storedFirstName;
     }
